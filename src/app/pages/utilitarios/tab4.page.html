@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-segment value="calculadoras" (ionChange)="segmentChanged($event)" scrollable="true">
+      <ion-segment-button value="calculadoras">
+        <!-- <ion-label>Calculadoras</ion-label> -->
+        <ion-icon name="calculator"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="cronometro">
+        <ion-icon name="speedometer"></ion-icon>
+        <!-- <ion-label>Cronômetro</ion-label> -->
+      </ion-segment-button>
+      <ion-segment-button value="temporizador">
+        <ion-icon name="alarm"></ion-icon>
+        <!-- <ion-label>Temporizador</ion-label> -->
+      </ion-segment-button>
+      <ion-segment-button value="evolucao">
+        <ion-icon name="stats"></ion-icon>
+        <!-- <ion-label>Evolução</ion-label> -->
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+  </ion-card>
+
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+  </ion-card>
+
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+  </ion-card>
+  
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+  </ion-card>
+</ion-content>

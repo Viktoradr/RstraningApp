@@ -1,0 +1,39 @@
+<ion-content color="dark">
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <div text-center>
+          <h1 class="text-login">RSTraining</h1>
+        </div>
+        <form [formGroup]="formulario">
+          <div padding>
+            <ion-item margin-bottom>
+              <ion-input
+                type="text"
+                placeholder="Login"
+                formControlName="login"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input
+                type="password"
+                placeholder="Senha"
+                formControlName="senha"
+              ></ion-input>
+            </ion-item>
+          </div>
+
+          <div padding>
+            <ion-button (click)="logar()" expand="block" color="primary"
+              >Login</ion-button
+            >
+            <ion-button (click)="cadastro()" expand="block" color="light"
+              >Cadastrar</ion-button
+            >
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
