@@ -1,0 +1,41 @@
+//usuarios
+{
+	"_id" : ObjectId("5cf3dd380c75772bf8655108"),
+	"ativo" : true,
+	"perfilId" : ObjectId("5cf2f922c75ec61df0b24d12"),
+	"professor" : null,
+	"planoId" : ObjectId("5cf2f9a87562be1924bf2a58"),
+	"objetivo" : 1,
+	"nivelAtividade" : 5,
+	"sexo" : 1,
+	"medidas" : null,
+	"amigos" : [ ],
+	"nome" : "victor alves dutra rodrugues",
+	"email" : "victor.adrodrigues@outlook.com.br",
+	"login" : "victor",
+	"senha" : "123456",
+	"idade" : 26,
+	"altura" : 174,
+	"pesoCorporal" : 74,
+	"pesoAlvo" : 80,
+	"dataCadastro" : ISODate("2019-06-02T11:29:12.269-03:00"),
+	"series" : [ ],
+	"__v" : 0
+},
+
+//planos
+{
+	"_id" : ObjectId("5cf2f9a87562be1924bf2a58"),
+	"valor" : 50,
+	"ativo" : true,
+	"descricao" : "Master",
+	"__v" : 0
+},
+
+//perfil
+{
+	"_id" : ObjectId("5cf2f922c75ec61df0b24d12"),
+	"ativo" : true,
+	"descricao" : "Administrador",
+	"__v" : 0
+}
