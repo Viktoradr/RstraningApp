@@ -12,16 +12,33 @@
 </ion-header>
 
 <ion-content>
-
   <ion-card class="welcome-card">
     <ion-card-header>
-      <ion-card-subtitle>Hipertrofia</ion-card-subtitle>
-      <ion-card-title>Victor Alves</ion-card-title>
+      <ion-card-subtitle>{{ objetivo | titlecase }}</ion-card-subtitle>
+      <ion-card-title>{{ nome | titlecase }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p>Now that your app has been created, you'll want to start building out features and components. Check out some
-        of
-        the resources below for next steps.</p>
+      <p>
+        Now that your app has been created, you'll want to start building out
+        features and components. Check out some of the resources below for next
+        steps.
+      </p>
+
+      <ion-row justify-content-center margin-top>
+        <ion-col align-self-center size-md="3" size-lg="3" size-xs="3" class="ion-text-start">
+          <ion-card-title>Altura</ion-card-title>
+          <p>{{ altura }} cm</p>
+        </ion-col>
+        <ion-col align-self-center size-md="6" size-lg="6" size-xs="6" class="ion-text-center">
+          <ion-card-title>Peso</ion-card-title>
+          <p>{{ pesoC }} Kg</p>
+        </ion-col>
+        <ion-col align-self-center size-md="3" size-lg="3" size-xs="3" class="ion-text-end">
+          <ion-card-title>Alvo</ion-card-title>
+          <p>{{ pesoA }} Kg</p>
+        </ion-col>
+      </ion-row>
+      
     </ion-card-content>
   </ion-card>
 
@@ -30,5 +47,4 @@
       <ion-icon name="create"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-
 </ion-content>

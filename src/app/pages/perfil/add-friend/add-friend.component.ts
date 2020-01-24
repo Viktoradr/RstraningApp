@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Tab2Service } from '../tab2.service';
 
 @Component({
   selector: 'app-add-friend',
@@ -6,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-friend.component.scss'],
 })
 export class AddFriendComponent implements OnInit {
+  usuarios: any[] = [];
 
-  constructor() { }
+  constructor(private service: Tab2Service) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.service.usuariosMinify().subscribe(
+      (res: any[]) => {
+        this.usuarios = res.map((u: any) => {
+          u.nome = `${u.nome.split(" ")[0]} ${u.nome.split(" ")[1]}`;
+          return u;
+        });
+        console.log(res);
+      },
+      err => {}
+    );
+  }
 
 }

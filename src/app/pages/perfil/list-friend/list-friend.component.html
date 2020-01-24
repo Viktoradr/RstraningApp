@@ -17,11 +17,23 @@
 <ion-content>
 
   <ion-list>
-    <ion-item button [routerLink]="['../', 'Amigos', '1']">
-      <ion-label>
-        Button Item
-      </ion-label>
-    </ion-item>
+
+    <ng-template #empty>
+      <ion-item>
+        <ion-label>
+          Não existe nenhum usuários cadastrado
+        </ion-label>
+      </ion-item>
+    </ng-template>
+
+    <ng-container *ngIf="usuarios.length > 0 else empty" >
+      <ion-item button [routerLink]="['../', 'Amigos', item.id]" *ngFor="let item of usuarios" >
+        <ion-icon name="finger-print" slot="start" [color]="item.isprof ? 'primary' : 'secondary'"></ion-icon>
+        <ion-label>
+          {{item.nome | titlecase}}
+        </ion-label>
+      </ion-item>
+    </ng-container>
   </ion-list>
 
 </ion-content>
