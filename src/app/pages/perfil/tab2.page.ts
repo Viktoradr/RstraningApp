@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { ViewFriendComponent } from './view-friend/view-friend.component';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -10,11 +7,5 @@ import { Router } from '@angular/router';
 })
 export class Tab2Page {
 
-  constructor(
-    private router: Router
-  ){}
-
-  navegar(){
-    this.router.navigate(['/list']);
-  }
+  constructor(){}
 }

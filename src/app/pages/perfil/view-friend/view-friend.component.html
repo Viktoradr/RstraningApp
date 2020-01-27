@@ -3,14 +3,20 @@
     <ion-buttons slot="secondary" slot="start">
       <ion-back-button defaultHref="/Amigos"></ion-back-button>
     </ion-buttons>
-    <ion-title>
-      {{ friend.nome | titlecase }}
-    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  
 
-
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-subtitle>{{ objetivo | titlecase }}</ion-card-subtitle>
+      <ion-card-title>{{ nome | titlecase }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      
+    </ion-card-content>
+  </ion-card>
 </ion-content>

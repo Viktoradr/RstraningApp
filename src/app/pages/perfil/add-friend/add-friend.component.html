@@ -11,19 +11,30 @@
 
 <ion-content>
 
+<!-- Searchbar in a Toolbar -->
+<ion-toolbar>
+  <ion-searchbar 
+  animated 
+  placeholder="Buscar pelo código" 
+  debounce="1000" 
+  showCancelButton="always"
+  (ionChange)="buscar($event)"
+  ></ion-searchbar>
+</ion-toolbar>
+
   <ion-list>
 
     <ng-template #empty>
       <ion-item>
-        <ion-label>
-          Não existe nenhum usuários cadastrado
+        <ion-label text-center>
+          Não existe nenhum usuário para exibir
         </ion-label>
       </ion-item>
     </ng-template>
 
     <ng-container *ngIf="usuarios.length > 0 else empty" >
-      <ion-item button [routerLink]="['../', 'Amigos', item.id]" *ngFor="let item of usuarios" >
-        <ion-icon name="finger-print" slot="start" [color]="item.isprof ? 'primary' : 'secondary'"></ion-icon>
+      <ion-item button (click)="adicionar(item)" *ngFor="let item of usuarios" >
+        <ion-icon name="add" slot="start"></ion-icon>
         <ion-label>
           {{item.nome | titlecase}}
         </ion-label>

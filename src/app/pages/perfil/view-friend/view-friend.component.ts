@@ -1,8 +1,8 @@
-import { ActivatedRoute } from '@angular/router';
-
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Tab2Service } from './../tab2.service';
 import { take } from 'rxjs/operators';
+import { UtilProvider } from 'src/app/providers/util.provider';
 
 @Component({
   selector: 'app-view-friend',
@@ -11,11 +11,14 @@ import { take } from 'rxjs/operators';
 })
 export class ViewFriendComponent implements OnInit {
 
-  friend: any = {};
+  nome: string;
+  objetivo: string;
+  sexo: string;
 
   constructor(
     private service: Tab2Service,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private util: UtilProvider
   ) { }
 
   ngOnInit() {
@@ -25,8 +28,10 @@ export class ViewFriendComponent implements OnInit {
         
         this.service.usuarioPorId(params['id']).pipe(take(1)).subscribe((res: any) => {
           
-          this.friend = res;
-          
+          this.nome = res.nome;
+          this.objetivo = this.util.getDescriptionObjetivo(res.objetivo);
+          this.sexo = res.sexo == 1 ? "M" : "F";
+
         }, err => {})
       }
     })

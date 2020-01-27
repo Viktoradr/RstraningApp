@@ -29,6 +29,33 @@ export class UtilProvider {
     });
   }
 
+  ask(header: string, message: string) {
+    return new Promise((res, reject) => {
+      this.alertCtrl
+        .create({
+          header: header,
+          message: message,
+          buttons: [
+            {
+              text: "Ok",
+              handler: () => {
+                res(true);
+              }
+            },
+            {
+              text: "Cancel",
+              role: "cancel",
+              cssClass: 'secondary',
+              handler: () => {
+                res(false);
+              }
+            }
+          ]
+        })
+        .then(alert => alert.present());
+    });
+  }
+
   loading() {
     this.loadingCtrl
       .create({

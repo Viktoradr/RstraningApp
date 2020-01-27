@@ -61,12 +61,13 @@ export class CadastroPage implements OnInit {
 
       this.usuarioService.cadastrar(obj).subscribe(
         res => {
-          if (res != undefined)
+          if (res != undefined){
+            this.util.loadingDimiss();
+
             this.util.notificar("Cadastrado", "Cadastro realizado com sucesso").then((res) => {
-              this.router
-                  .navigate(["../login"])
-                  .then(() => this.util.loadingDimiss());
+              this.router.navigate(["../login"]);
             });
+          }
           else this.util.loadingDimiss();
         },
         err => {
