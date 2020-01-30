@@ -1,0 +1,44 @@
+<form [formGroup]="formulario">
+  <ion-list padding>
+    <ion-item>
+      <ion-label position="stacked">Observação</ion-label>
+      <ion-textarea 
+        type="text" 
+        formControlName="descricao" 
+        placeholder="Escreva uma observação"
+        (ionChange)="changeDescricao()"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-item color="primary">
+    <ion-label>Exercícios</ion-label>
+    <ion-button button no-padding fill="clear" size="large" slot="end" (click)="addExercicio()">
+      <ion-icon name="add-circle" color="light" ></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <ion-list>
+
+    <ng-template #empty>
+      <ion-item text-center lines="none">
+        <ion-label>Não existe itens para serem exibidos</ion-label>
+      </ion-item>
+    </ng-template>
+
+    <ng-container *ngIf="exercicios.length > 0 else empty" >
+      <ion-item *ngFor="let item of exercicios">
+        <ion-label class="ion-text-wrap">
+          <ion-text color="primary">
+            <h3>{{ item.exercicio }}</h3>
+          </ion-text>
+          <p>{{ item.series }} x ({{ item.repeticoes }}) / Carga: {{ item.carga == '' ? '???' : item.carga }}</p>
+          <ion-text>
+            <p>{{ item.observacao }}</p>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+    </ng-container>
+
+
+  </ion-list>
+</form>

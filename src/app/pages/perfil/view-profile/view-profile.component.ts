@@ -34,4 +34,16 @@ export class ViewProfileComponent implements OnInit {
     })
   }
 
+  editar() {
+    // this.util.input('Editar', {
+    //   altura: this.altura,
+    //   pesoCorporal: this.pesoC,
+    //   pesoAlvo: this.pesoA
+    // }).then((res) => {
+    //   if (res) {
+    //     this.util.notificar('Atualizado', 'Seus dados foram atualizados com sucesso');
+    //   }
+    // });
+  }
+
 }

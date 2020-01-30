@@ -7,10 +7,53 @@
       Add Serie
     </ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment scrollable (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="0" checked>
+        <ion-label>A</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        <ion-label>B</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="2">
+        <ion-label>C</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="3">
+        <ion-label>D</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="4">
+        <ion-label>E</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <div [ngClass]="tabSelecionado == 0 ? 'visible' : 'invisible'" >
+    <form-ficha (ficha)="addFichaA($event)"></form-ficha>
+  </div>
 
+  <div [ngClass]="tabSelecionado == 1 ? 'visible' : 'invisible'" >
+    <form-ficha (ficha)="addFichaB($event)"></form-ficha>
+  </div>
+  
+  <div [ngClass]="tabSelecionado == 2 ? 'visible' : 'invisible'" >
+    <form-ficha (ficha)="addFichaC($event)"></form-ficha>
+  </div>
+
+  <div [ngClass]="tabSelecionado == 3 ? 'visible' : 'invisible'" >
+    <form-ficha (ficha)="addFichaD($event)"></form-ficha>
+  </div>
+
+  <div [ngClass]="tabSelecionado == 4 ? 'visible' : 'invisible'" >
+    <form-ficha (ficha)="addFichaE($event)"></form-ficha>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button button (click)="salvarGrupo()" >
+      <ion-icon name="save"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

@@ -7,31 +7,50 @@
       <ion-button button [routerLink]="['Add']">
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
-      <ion-button button [routerLink]="['Add']">
-        <ion-icon slot="icon-only" name="calendar"></ion-icon>
-      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-    <ion-list>
-        <ion-item button [routerLink]="['1']">
-          <ion-label>A - Pokémon Yellow</ion-label>
-        </ion-item>
-        <ion-item button [routerLink]="['2']">
-          <ion-label>B - Mega Man X</ion-label>
-        </ion-item>
-        <ion-item button [routerLink]="['3']">
-          <ion-label>C - The Legend of Zelda</ion-label>
-        </ion-item>
-        <ion-item button [routerLink]="['4']">
-          <ion-label>D - Pac-Man</ion-label>
-        </ion-item>
-        <ion-item button [routerLink]="['5']">
-          <ion-label>E - Super Mario World</ion-label>
-        </ion-item>
-      </ion-list>
+  <ion-list>
+
+    <ng-template #empty>
+      <ion-item>
+        <ion-label text-center>
+          Não existe nenhuma séria cadastrada
+        </ion-label>
+      </ion-item>
+    </ng-template>
+
+    <ng-container *ngIf="series.length > 0 else empty" >
+      <ion-item button [routerLink]="[item.ficha.id]" *ngFor="let item of series" >
+        <!-- <ion-icon name="finger-print" slot="start" [color]="item.isprof ? 'primary' : 'secondary'"></ion-icon> -->
+        <ion-label>
+          <ion-text color="primary" float-left>
+            <h3>{{ item.ficha.tipoDescricao}}</h3>
+          </ion-text>
+
+          <ion-text color="primary" float-right>
+            <h3>{{item.ficha.dataCriacao | date:'dd/MM/yyyy'}}</h3>
+          </ion-text>
+        </ion-label>
+        
+        <ion-label class="ion-text-wrap" slot="start">
+
+          <ion-text float-left>
+            <p>{{ item.ficha.descricao }}</p>
+            <p>Exercícios: {{item.ficha.exercicios.length}} </p>
+          </ion-text>
+
+          <!-- <ion-text>
+            <br>
+            <p>Exercícios: {{item.ficha.exercicios.length}} </p>
+          </ion-text> -->
+        </ion-label>
+      </ion-item>
+
+    </ng-container>
+  </ion-list>
 
 </ion-content>
