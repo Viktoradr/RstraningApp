@@ -23,7 +23,6 @@ export class ListFriendComponent implements OnInit {
             u.nome = `${u.nome.split(" ")[0]} ${u.nome.split(" ")[1]}`;
             return u;
           });
-          console.log(res);
         },
         err => {}
       );

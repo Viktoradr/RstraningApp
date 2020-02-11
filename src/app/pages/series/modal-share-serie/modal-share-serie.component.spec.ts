@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormFichaComponent } from './form-ficha.component';
+import { ModalShareSerieComponent } from './modal-share-serie.component';
 
-describe('FormFichaComponent', () => {
-  let component: FormFichaComponent;
-  let fixture: ComponentFixture<FormFichaComponent>;
+describe('ModalShareSerieComponent', () => {
+  let component: ModalShareSerieComponent;
+  let fixture: ComponentFixture<ModalShareSerieComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormFichaComponent ],
+      declarations: [ ModalShareSerieComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormFichaComponent);
+    fixture = TestBed.createComponent(ModalShareSerieComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

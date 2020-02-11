@@ -30,4 +30,19 @@ export class Tab3Service {
       );
   }
 
+  updateFicha(serieId: string, obj: any): Observable<any> {
+    return this.http.post(this.api.request(`serie/${serieId}/ficha/update`), obj)
+      .pipe(
+        take(1),
+        map(result => result)
+      );
+  }
+
+  compartilharSerie(friendId: string, serieId: string) {
+    return this.http.post(this.api.request(`serie/${serieId}/share/${friendId}`))
+      .pipe(
+        take(1),
+        map(result => result)
+      );
+  }
 }

@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class DataProvider {
 
     private _$USER = "_$user_sd";
+    private _$SERIE = "_$serie_sd";
 
     constructor() { }
 
@@ -27,6 +28,24 @@ export class DataProvider {
 
     clearUser() {
         localStorage.removeItem(this._$USER);
+    }
+
+    /*-----------------------------------*/
+
+    getSerie() {
+        return JSON.parse(atob(localStorage.getItem(this._$SERIE)));
+    }
+
+    setSerie(serie: any) {
+        localStorage.setItem(this._$SERIE, btoa(JSON.stringify(serie)));
+    }
+
+    async getSerieAsync() {
+        return await this.getSerie();
+    }
+
+    clearSerie() {
+        localStorage.removeItem(this._$SERIE);
     }
 
 }

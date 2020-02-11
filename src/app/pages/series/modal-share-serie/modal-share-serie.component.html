@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- <ion-title>
+      Séries
+    </ion-title> -->
+    <ion-buttons slot="secondary">
+      <ion-button button (click)="dismiss()">
+        Fechar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ng-container *ngIf="friends.length > 0">
+      <ion-item button *ngFor="let item of friends" (click)="compartilhar(item)" >
+        <ion-icon
+          name="finger-print"
+          slot="start"
+          [color]="item.isprof ? 'primary' : 'secondary'"
+        ></ion-icon>
+        <ion-label>
+          {{ item.nome | titlecase }}
+        </ion-label>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+</ion-content>

@@ -12,9 +12,8 @@
 </ion-header>
 
 <ion-content>
-
+  
   <ion-list>
-
     <ng-template #empty>
       <ion-item>
         <ion-label text-center>
@@ -23,34 +22,39 @@
       </ion-item>
     </ng-template>
 
-    <ng-container *ngIf="series.length > 0 else empty" >
-      <ion-item button [routerLink]="[item.ficha.id]" *ngFor="let item of series" >
-        <!-- <ion-icon name="finger-print" slot="start" [color]="item.isprof ? 'primary' : 'secondary'"></ion-icon> -->
-        <ion-label>
-          <ion-text color="primary" float-left>
-            <h3>{{ item.ficha.tipoDescricao}}</h3>
-          </ion-text>
+    <ng-container *ngIf="series.length > 0; else empty">
+      <ion-item-sliding button (click)="ver(item)" *ngFor="let item of series">
+        <ion-item>
+          <!-- <ion-icon name="finger-print" slot="start" [color]="item.isprof ? 'primary' : 'secondary'"></ion-icon> -->
+          <ion-label>
+            <ion-text float-left>
+              <ion-text color="primary">
+                <h3 color="primary">{{ item.ficha.tipoDescricao }}</h3>
+              </ion-text>
+              <ion-text class="ion-text-wrap">
+                <p>{{ item.ficha.descricao }}</p>
+                <p>Exercícios: {{ item.ficha.exercicios.length }}</p>
+              </ion-text>
+            </ion-text>
 
-          <ion-text color="primary" float-right>
-            <h3>{{item.ficha.dataCriacao | date:'dd/MM/yyyy'}}</h3>
-          </ion-text>
-        </ion-label>
-        
-        <ion-label class="ion-text-wrap" slot="start">
+            <ion-text color="primary" float-right>
+              <h3>{{ item.ficha.dataCriacao | date: "dd/MM/yyyy" }}</h3>
+            </ion-text>
+          </ion-label>
+          <!-- <ion-icon
+            button
+            name="share"
+            slot="end"
+            (click)="share(item)"
+          ></ion-icon> -->
+        </ion-item>
 
-          <ion-text float-left>
-            <p>{{ item.ficha.descricao }}</p>
-            <p>Exercícios: {{item.ficha.exercicios.length}} </p>
-          </ion-text>
-
-          <!-- <ion-text>
-            <br>
-            <p>Exercícios: {{item.ficha.exercicios.length}} </p>
-          </ion-text> -->
-        </ion-label>
-      </ion-item>
-
+        <ion-item-options side="end">
+          <ion-item-option color="tertiary" expandable>
+            <ion-icon (click)="share(item)" slot="icon-only" name="share"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
     </ng-container>
   </ion-list>
-
 </ion-content>

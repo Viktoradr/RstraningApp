@@ -8,6 +8,7 @@ import { AddSerieComponent } from './add-serie/add-serie.component';
 import { ListSerieComponent } from './list-serie/list-serie.component';
 import { ViewSerieComponent } from './view-serie/view-serie.component';
 import { FormFichaComponent } from './form-ficha/form-ficha.component';
+import { ModalShareSerieComponent } from './modal-share-serie/modal-share-serie.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,9 @@ import { FormFichaComponent } from './form-ficha/form-ficha.component';
     AddSerieComponent,
     ListSerieComponent,
     ViewSerieComponent,
-    FormFichaComponent
-  ]
+    FormFichaComponent,
+    ModalShareSerieComponent
+  ],
+  entryComponents: [ModalShareSerieComponent]
 })
 export class Tab3PageModule {}

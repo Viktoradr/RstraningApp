@@ -58,7 +58,7 @@ export class UtilProvider {
 
   // input(header: string, obj: any) {
   //   return new Promise((res, reject) => {
-  //     const alert = this.alertCtrl
+  //     const alert = thialertCtrl
   //       .create({
   //         header: header,
   //         inputs: [
@@ -154,6 +154,10 @@ export class UtilProvider {
     this.loadingCtrl.dismiss();
   }
 
+  clonar(obj: any) {
+    return JSON.parse(JSON.stringify(obj));
+  }
+
   getDescriptionObjetivo(num: number) {
     switch (num) {
       case 0:
@@ -165,5 +169,36 @@ export class UtilProvider {
       default:
         return "Emagrecer";
     }
+  }
+
+  getFichaDescription(ficha: any) {
+    switch (ficha.tipo) {
+      case 0:
+        ficha.sigla = "A";
+        ficha.tipoDescricao = "Série A";
+        break;
+      case 1:
+        ficha.sigla = "B";
+        ficha.tipoDescricao = "Série B";
+        break;
+      case 2:
+        ficha.sigla = "C";
+        ficha.tipoDescricao = "Série C";
+        break;
+      case 3:
+        ficha.sigla = "D";
+        ficha.tipoDescricao = "Série D";
+        break;
+      case 4:
+        ficha.sigla = "E";
+        ficha.tipoDescricao = "Série E";
+        break;
+
+      default:
+        ficha.sigla = "A";
+        ficha.tipoDescricao = "Série A";
+        break;
+    }
+    return ficha;
   }
 }

@@ -1,16 +1,48 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="secondary" slot="start">
-      <ion-back-button defaultHref="/Series"></ion-back-button>
+      <ion-back-button defaultHref="tabs/Series"></ion-back-button>
     </ion-buttons>
-    <ion-title>
-      Serie ID
-    </ion-title>
+<!-- 
+    <ion-buttons slot="secondary">
+      <ion-button button (click)="share()" >
+        <ion-icon slot="icon-only" name="share"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-subtitle color="primary">
+        <span>{{ tipo }}</span>
+        <span style="float: right;">{{ dataCriacao | date:'dd/MM/yyyy' }}</span>
+      </ion-card-subtitle>
+
+      <ion-card-title >{{ nome }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let item of exercicios; let i = index;">
+      <ion-label>
+        <ion-text color="primary">
+          <h3 color="primary">{{ item.exercicio | uppercase }}</h3>
+        </ion-text>
+        <ion-text>
+          <ion-text class="ion-text-wrap"> 
+            <p>{{ item.series }} x {{ item.repeticoes }} / {{ item.carga }}</p>
+            <p>{{ item.observacao }}</p>
+          </ion-text>
+        </ion-text>
+      </ion-label>
+      
+      <ion-icon slot="end" name="create" color="primary" (click)="editar(item, i)" ></ion-icon>
+
+    </ion-item>
+  </ion-list>
 
 
 </ion-content>
